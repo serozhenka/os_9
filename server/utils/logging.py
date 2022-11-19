@@ -4,7 +4,8 @@ import sys
 def get_logger(name):
     logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)
-    setup_stdout_stream_handler(logger, logging.INFO)
+    if not logger.handlers:
+        setup_stdout_stream_handler(logger, logging.INFO)
     return logger
 
 
